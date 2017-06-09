@@ -35,11 +35,9 @@ struct mp_gate
       if(length_ok)
         {
         if(omp_in_parallel())  { return false; }
-        
-        return true;
         }
       
-      return false;
+      return length_ok;
       }
     #else
       {
