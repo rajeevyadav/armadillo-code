@@ -29,10 +29,25 @@ struct mp_gate
   eval(const uword n_elem)
     {
     #if defined(ARMA_USE_OPENMP)
-      if(omp_in_parallel())  { return false; }
+      {
+      const bool length_ok = (is_cx<eT>::yes || use_smaller_thresh) ? (n_elem >= (arma_config::mp_threshold/uword(2))) : (n_elem >= arma_config::mp_threshold);
+      
+      if(length_ok)
+        {
+        if(omp_in_parallel())  { return false; }
+        
+        return true;
+        }
+      
+      return false;
+      }
+    #else
+      {
+      arma_ignore(n_elem);
+      
+      return false;
+      }
     #endif
-    
-    return (is_cx<eT>::yes || use_smaller_thresh) ? (n_elem >= (arma_config::mp_threshold/uword(2))) : (n_elem >= arma_config::mp_threshold);
     }
   };
 
