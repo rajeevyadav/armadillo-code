@@ -266,8 +266,8 @@ Faster and/or alternative implementations of BLAS and LAPACK are available:
 
 The OpenBLAS and Intel MKL libraries are generally the fastest.
 
-Caveat: for any serious and/or critical work, we recommend
-using either Mac OS X or a Linux based operating system:
+Caveat: for any serious and/or performance critical work,
+we recommend using either Mac OS X or a Linux based operating system:
   Ubuntu                    http://www.ubuntu.com/
   Debian                    http://www.debian.org/
   OpenSUSE                  http://www.opensuse.org/
