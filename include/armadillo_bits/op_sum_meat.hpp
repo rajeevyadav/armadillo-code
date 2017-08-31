@@ -240,6 +240,12 @@ op_sum::apply_noalias_proxy_mp(Mat<typename T1::elem_type>& out, const Proxy<T1>
         }
       }
     }
+  #else
+    {
+    arma_ignore(out);
+    arma_ignore(P);
+    arma_ignore(dim);
+    }
   #endif
   }
 
